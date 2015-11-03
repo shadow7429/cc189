@@ -1,2 +1,2 @@
 # cc189
-// Practice
+// Practice from the book CC189
