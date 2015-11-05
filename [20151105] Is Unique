@@ -1,0 +1,21 @@
+
+class Solution {
+  public static boolean ifUnique(String str){
+    int checker = 0;
+    for (int i = 0; i < str.length(); i++){
+      int val = str.charAt(i) - 'a';
+      if((checker & (1 << val)) > 0) return false;
+      checker |= (1 << val);
+    }
+    return true;
+  }
+  public static void main(String[] args) {
+    String s = "AcdbsA";
+    System.out.println(ifUnique(s));
+  }
+}
+
+/*
+这个方法就是利用了二进制位串的操作，val的作用就是如果第当前char为d，那么1左移3位应为1000，则这个位串的第四位为1，然后将它与checker
+进行比较，如果checker与其按位与的结果大于0，也就是当前位数上checker中已经为1，就说明已经出现过这个字符，那么就返回false；
+*/
