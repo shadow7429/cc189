@@ -1,0 +1,24 @@
+class Solution {
+  public static boolean checkPermutation(String s, String t){
+    if (s.length() != t.length()) return false;
+    int[] checker = new int[128]; //assumption
+    Arrays.fill(checker, 0);
+    char[] charA = s.toCharArray();
+    for (char c : charA) checker[c]++;
+    for (int i = 0; i < t.length(); i++){
+      char c = t.charAt(i);
+      checker[c]--;
+      if (checker[c] < 0) return false;
+    }
+    return true;
+  }
+  public static void main(String[] args) {
+    String s = "abcd";
+    String t = "dbcA";
+    System.out.println(checkPermutation(s, t));
+  }
+}
+/*
+比较两个string是不是permutation；这里面利用的是检查两个string的字符串构成是不是一样即可。也可以将两个字符串都排序，然后直接比较。
+注意上面标注的地方要问interviewer可不可以。
+*/
