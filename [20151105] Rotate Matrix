@@ -16,7 +16,7 @@ void rotate(int[][] matrix, int n){
 			matrix[last][last - offset] = matrix[i][last];
 			//top -> right
 			matrix[i][last] = top;
-		}
+		} 
   } 
 }
  
