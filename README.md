@@ -1,2 +1,2 @@
 # cc189
-// Practice from the book CC189
+This part is the methods leanrt in the CC189. 
