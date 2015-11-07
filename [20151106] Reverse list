@@ -1,0 +1,35 @@
+// 这个就是练习一下简单的单向list的反转，因为对list的操作很不熟悉。
+/* 在list的各种题目中，使用recursive的频率非常高，因为一般都需要逆向进行，所以我们一直走到最后然后一个个返回，当然用stack也可
+直接反转。在使用到相隔若干位或者list中点的题目中，经常使用fast/slow双pointer方法。
+*/
+class TreeNode {
+  public int value;
+  public TreeNode next;
+  public TreeNode(int v){
+    value = v;
+  }
+}
+class Solution {
+  public static TreeNode reverse(TreeNode node){
+    if (node.next == null) return node;
+    TreeNode t = reverse(node.next);
+    TreeNode cloneNode = new TreeNode(node.value);
+    cloneNode.next = null;
+    t.next = cloneNode;
+    t = t.next;
+    return t;
+  }
+  public static void main(String[] args) {
+    TreeNode t1 = new TreeNode(1);
+    TreeNode t2 = new TreeNode(2);
+    TreeNode t3 = new TreeNode(3);
+    t1.next = t2;
+    t2.next = t3;
+    reverse(t1);
+    while (t3 != null){
+      System.out.println(t3.value);
+      t3 = t3.next;
+    }
+    return;
+  }
+}
